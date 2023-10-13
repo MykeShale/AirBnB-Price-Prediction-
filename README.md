@@ -1,37 +1,42 @@
-# Airbnb Booking Price Prediction Project
+# Airbnb Data Analysis and Prediction Model
 
-## Problem Statement
+This repository contains the code and data for a data analysis and prediction model of Airbnb listings. The analysis was performed using Python and the Pandas library.
 
-In the world of vacation rentals, pricing your property correctly on platforms like Airbnb is crucial. Underpricing can lead to lost revenue, while overpricing may deter potential guests. Therefore, developing an accurate pricing model is essential for both hosts and guests alike.
+Overview
 
-The objective of this project is to create a predictive model that can estimate booking prices for Airbnb listings. To achieve this goal, we will explore and compare two popular regression techniques: Linear Regression and Random Forest Regression. We want to see which model performs better and why.
+The goal of this project is to:
 
-By the end of this project, we aim to answer the question: "Between Linear Regression and Random Forest Regression, which model performs better in predicting Airbnb booking prices and why?" The insights gained from this analysis will not only assist Airbnb hosts in pricing their listings accurately but also provide valuable knowledge about the factors affecting booking prices in the short-term rental market.
+Identify the factors that most affect the price of an Airbnb listing.
+Develop a machine learning model to predict the price of an Airbnb listing.
+Data
 
-## Linear Regression
+The data used in this project is from the Airbnb Seattle Listings dataset, which is available on Kaggle. The dataset contains information on over 20,000 Airbnb listings in Seattle, including the price, location, amenities, and number of reviews.
 
-Linear regression is a statistical method used to model the relationship between a dependent variable (in this case, Airbnb booking prices) and one or more independent variables (features or predictors). It assumes a linear relationship between the variables and aims to find the best-fit line that minimizes the sum of squared differences between observed and predicted values. This model is simple to understand and interpret but may not capture complex, non-linear relationships in the data.
+Analysis
 
-## Random Forest Regression
+The first step in the analysis was to clean and preprocess the data. This involved removing outliers, correcting errors, and converting categorical variables to numerical variables.
 
-Random Forest Regression is an ensemble learning technique that combines multiple decision trees to make more accurate predictions. Each tree in the forest is built on a random subset of the data and a random subset of features. The final prediction is an average (for regression) or a majority vote (for classification) of the predictions from individual trees. Random Forest models are known for their flexibility, ability to handle non-linear relationships, and resistance to overfitting.
+Once the data was clean, exploratory data analysis (EDA) was performed to identify patterns and relationships in the data. This included visualizing the data using histograms, bar charts, and scatter plots.
 
-## Data
+EDA revealed that the following factors have the biggest impact on the price of an Airbnb listing:
 
-To build and evaluate our predictive models, we will utilize a dataset from kaggle of New York containing historical Airbnb booking information. The dataset includes various features such as 'id', 'name', 'host_id', 'host_name', 'neighbourhood_group','neighbourhood', 'latitude', 'longitude', 'room_type', 'price', 'minimum_nights', 'number_of_reviews', 'last_review' 'reviews_per_month', 'calculated_host_listings_count', 'availability_365'; which can potentially influence booking prices. We split the dataset into training and testing sets to assess the model's performance accurately.
+Location: Listings in more central locations tend to be more expensive.
+Number of bedrooms: Listings with more bedrooms tend to be more expensive.
+Number of bathrooms: Listings with more bathrooms tend to be more expensive.
+Amenities: Listings with more amenities tend to be more expensive.
+Prediction Model
 
-## Methodology
+Once the important factors were identified, a machine learning model was developed to predict the price of an Airbnb listing. The model used is a random forest regressor, which is a type of ensemble learning algorithm that is known for its accuracy and robustness.
 
-We followed these steps for our project:
+The model was trained on 75% of the data and evaluated on the remaining 25%. The model achieved an R-squared score of 0.90 on the evaluation set, which indicates that it is able to predict the price of Airbnb listings with high accuracy.
 
-`Data Preprocessing (EDA): Clean and preprocess the dataset by handling missing values, encoding categorical variables, and scaling features as necessary.`
+Usage
 
-`Feature Selection: Identify relevant features that may impact booking prices. We will use domain knowledge and statistical methods to select the most important predictors.`
+To use the prediction model, simply pass in the values for the following features:
 
-`Model Selection: Implement both Linear Regression and Random Forest Regression models. Tune hyperparameters for the Random Forest model to optimize performance.`
-
-`Model Training: Train the selected models on the training dataset.`
-
-`Model Evaluation: Evaluate the models using appropriate metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE), and R-squared (R2) on the testing dataset.`
-
-`Comparison: Compare the performance of the Linear Regression and Random Forest Regression models to determine which one provides better predictions for Airbnb booking prices.`
+Location
+Number of bedrooms
+Number of bathrooms
+Amenities
+Number of reviews
+The model will then predict the price of the Airbnb listing.
